@@ -14,6 +14,9 @@ import java.util.List;
 import static htw.HuntTheWumpus.Direction.*;
 
 public class Main implements HtwMessageReceiver {
+	
+	private static String mytest;
+	
   private static HuntTheWumpus game;
   private static int hitPoints = 10;
   private static final List<String> caverns = new ArrayList<>();
