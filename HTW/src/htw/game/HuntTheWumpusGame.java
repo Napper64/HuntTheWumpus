@@ -19,11 +19,13 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 	private HtwMessageReceiver messageReceiver;
 	private Set<String> batCaverns = new HashSet<>();
 	private Set<String> pitCaverns = new HashSet<>();
+	private Set<String> goldCaverns = new HashSet<>();
 	private Set<String> potionCaverns = new HashSet<>();
 	private String wumpusCavern = "NONE";
 	private int quiver = 0;
 	private Map<String, Integer> arrowsIn = new HashMap<>();
 	private int playerHealth = 10;
+	private int playerGold = 0;
 
 	public HuntTheWumpusGame(HtwMessageReceiver receiver) {
 		this.messageReceiver = receiver;
@@ -67,6 +69,10 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 
 	public void addPitCavern(String cavern) {
 		pitCaverns.add(cavern);
+	}
+
+	public void addGoldCavern(String cavern) {
+		goldCaverns.add(cavern);
 	}
 
 	public void addPotionCavern(String cavern) {
@@ -278,6 +284,7 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 				checkForWumpus();
 				checkForPit();
 				checkForBats();
+				checkForGold();
 				checkForArrows();
 			} else
 				messageReceiver.noPassage();
@@ -307,6 +314,13 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 		private void checkForPit() {
 			if (pitCaverns.contains(playerCavern))
 				messageReceiver.fellInPit();
+		}
+
+		private void checkForGold() {
+			if (pitCaverns.contains(playerCavern)){
+				messageReceiver.foundGold();
+				setPlayerGold(getPlayerGold() + 1);
+			}
 		}
 
 		private void checkForArrows() {
@@ -354,6 +368,15 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 	@Override
 	public void setPotionCaverns(Set<String> potionCaverns) {
 		this.potionCaverns = potionCaverns;
+	}
+
+	@Override
+	public int getPlayerGold() {
+		return playerGold;
+	}
+
+	public void setPlayerGold(int playerGold) {
+		this.playerGold = playerGold;
 	}
 
 }

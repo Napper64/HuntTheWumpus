@@ -46,7 +46,8 @@ public class Main implements HtwMessageReceiver {
 		while (true) {
 			System.out.println(game.getPlayerCavern());
 			System.out.println("Health: " + game.getPlayerHealth()
-					+ " arrows: " + game.getQuiver());
+					+ "\nGold: " + game.getPlayerGold() + "\narrows: "
+					+ game.getQuiver());
 			HuntTheWumpus.Command c = game.makeRestCommand();
 			System.out.println(">");
 			String command = br.readLine();
@@ -101,6 +102,12 @@ public class Main implements HtwMessageReceiver {
 		game.addPotionCavern(anyOther(playerCavern));
 		game.addPotionCavern(anyOther(playerCavern));
 		game.addPotionCavern(anyOther(playerCavern));
+
+		int i = 0;
+		while (i < 10) {
+			game.addGoldCavern(anyOther(playerCavern));
+			i++;
+		}
 
 		game.setQuiver(5);
 	}
@@ -195,6 +202,10 @@ public class Main implements HtwMessageReceiver {
 	public void fellInPit() {
 		System.out.println("You fell in a pit and hurt yourself.");
 		game.hitPlayerBy(4);
+	}
+
+	public void foundGold() {
+		System.out.println("You found gold.");
 	}
 
 	public void playerMovesToWumpus() {

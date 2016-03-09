@@ -38,6 +38,8 @@ public interface HuntTheWumpus {
 
 	void addPitCavern(String cavern);
 
+	void addGoldCavern(String cavern);
+
 	void setWumpusCavern(String wumpusCavern);
 
 	String getWumpusCavern();
@@ -68,6 +70,8 @@ public interface HuntTheWumpus {
 
 	public void hitPlayerBy(int points);
 
+	//public void setPlayerGoldPoints(int gold);
+
 	public void potionAcquired();
 
 	public void addPotionCavern(String anyOther);
@@ -75,5 +79,7 @@ public interface HuntTheWumpus {
 	public Set<String> getPotionCaverns();
 
 	public void setPotionCaverns(Set<String> potionCaverns);
+
+	int getPlayerGold();
 
 }

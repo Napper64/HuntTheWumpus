@@ -24,6 +24,8 @@ public interface HtwMessageReceiver {
 	void arrowsFound(Integer arrowsFound);
 
 	void fellInPit();
+	
+	void foundGold();
 
 	void playerMovesToWumpus();
 
