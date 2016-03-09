@@ -33,7 +33,6 @@ public class HuntTheWumpusTest {
 
 	@Test
 	public void checkForGoldTest() throws Exception {
-		System.out.println("TEST");
 	}
 
 }
