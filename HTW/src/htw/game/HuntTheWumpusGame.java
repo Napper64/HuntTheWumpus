@@ -19,6 +19,7 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 	private HtwMessageReceiver messageReceiver;
 	private Set<String> batCaverns = new HashSet<>();
 	private Set<String> pitCaverns = new HashSet<>();
+	private Set<String> potionCaverns = new HashSet<>();
 	private String wumpusCavern = "NONE";
 	private int quiver = 0;
 	private Map<String, Integer> arrowsIn = new HashMap<>();
@@ -66,6 +67,10 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 
 	public void addPitCavern(String cavern) {
 		pitCaverns.add(cavern);
+	}
+
+	public void addPotionCavern(String cavern) {
+		potionCaverns.add(cavern);
 	}
 
 	public void setWumpusCavern(String wumpusCavern) {
@@ -340,4 +345,15 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 		} else
 			setPlayerHealth(playerHealth + 3);
 	}
+
+	@Override
+	public Set<String> getPotionCaverns() {
+		return potionCaverns;
+	}
+
+	@Override
+	public void setPotionCaverns(Set<String> potionCaverns) {
+		this.potionCaverns = potionCaverns;
+	}
+
 }

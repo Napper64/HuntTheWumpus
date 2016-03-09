@@ -2,6 +2,8 @@ package htw;
 
 import htw.game.HuntTheWumpusGame;
 
+import java.util.Set;
+
 public interface HuntTheWumpus {
 	public enum Direction {
 		NORTH {
@@ -67,5 +69,11 @@ public interface HuntTheWumpus {
 	public void hitPlayerBy(int points);
 
 	public void potionAcquired();
+
+	public void addPotionCavern(String anyOther);
+
+	public Set<String> getPotionCaverns();
+
+	public void setPotionCaverns(Set<String> potionCaverns);
 
 }

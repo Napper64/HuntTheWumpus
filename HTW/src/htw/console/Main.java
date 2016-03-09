@@ -98,6 +98,10 @@ public class Main implements HtwMessageReceiver {
 		game.addPitCavern(anyOther(playerCavern));
 		game.addPitCavern(anyOther(playerCavern));
 
+		game.addPotionCavern(anyOther(playerCavern));
+		game.addPotionCavern(anyOther(playerCavern));
+		game.addPotionCavern(anyOther(playerCavern));
+
 		game.setQuiver(5);
 	}
 
