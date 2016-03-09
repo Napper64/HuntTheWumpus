@@ -1,5 +1,6 @@
-|HuntTheWumpus||11:12:21 Wed, Mar 09, 2016|
-|HuntTheWumpus.ScenarioLibrary||13:46:54 Wed, Nov 11, 2015|
+|HuntTheWumpus.ScenarioLibrary||16:27:28 Wed, Mar 09, 2016|
+|HuntTheWumpus||15:37:30 Wed, Mar 09, 2016|
+|HuntTheWumpus.ReleaseTwo.StoreOption.CollectingGoldCoins||15:37:11 Wed, Mar 09, 2016|
 |HuntTheWumpus.ReleaseOne.PlayerRecievesStatusAfterEachTurn.AvailablePassagesAreReported||11:59:47 Tue, Oct 13, 2015|
 |HuntTheWumpus.ReleaseOne.PitCaverns.PlayerIsInformedAboutFallingIntoPit||06:57:44 Tue, Oct 13, 2015|
 |HuntTheWumpus.ReleaseOne.PitCaverns||06:55:37 Tue, Oct 13, 2015|

@@ -1,0 +1,112 @@
+>CollectingGoldCoins
+
+>BatRepellent
+
+>PurchaseItems
+
+'''Cavern scenarios'''
+
+''Collecting gold coins''
+
+If a room has a gold coin, increment gold amount by 1.
+
+|Gold coins|
+|Gold amount|room has gold|new gold amount?|
+|0|1|1|
+|1|1|2|
+
+If a room does not have a gold coin, gold amount doesn't change.
+
+|Gold coins|
+|Gold amount|room has gold|new gold amount?|
+|0|0|0|
+|1|0|1|
+
+
+
+
+''Using bat repellent''
+
+If a room has bats and the player has bat repellent, the player is unaffected by bats.
+If a room has bats and the player does not have bat repellent, the player is affected by bats.
+If a room does not have bats and the player does have bat repellent, nothing happens.
+
+|Bat cavern|
+|has bats|has repellent|room change?|has repellent?|
+|1|1|0|0|
+|1|0|1|0|
+|0|1|0|1|
+
+
+
+'''Purchasing items'''
+
+
+If you purchase an item, decrease gold amount by 1.
+
+''Option 1: purchasing an arrow''
+
+If you purchase an arrow, increase arrow count by 1.
+If you purchase an arrow, decrease gold amount by 1.
+
+|Purchase an arrow|
+|Arrow count current|gold count current|purchase arrow|gold count?|arrow count?|
+|5|1|1|0|6|
+
+
+''Option 2: purchasing a magic potion''
+
+If you purchase a magic potion, increase health total by 3.
+If you purchase a magic potion, decrease gold amount by 1.
+
+|Purchase a magic potion|
+|Health amount current|gold count current|purchase magic potion|gold count?|health amount?|
+|7|1|1|0|10|
+|8|1|1|0|10|
+|9|1|1|0|10|
+
+''Option 3: purchasing bat repellent''
+
+If you purchase bat repellent, change bat repellent value to true (yes).
+If you purchase bat repellent, decrease gold amount by 1.
+
+|Purchase bat repellent|
+|Bat repellent current|gold count current|purchase bat repellent|gold count?|bat repellent?|
+|0|1|1|0|1|
+
+
+
+'''Error messages'''
+
+Player attempts to purchase an item with gold coin count of 0 - display error message
+
+
+|Purchase an arrow|
+|Arrow count current|gold count current|purchase arrow|gold count?|arrow count?|displays error message?|
+|5|0|1|0|5|1|
+
+
+Player attempts to purchase bat repellent when they already have it - display error message
+
+|Purchase bat repellent|
+|Bat repellent current|gold count current|purchase bat repellent|gold count?|bat repellent?|displays error message?|
+|1|1|1|1|1|1|
+
+Player attempts to purchase magic potion when health amount is already 10 - display error message
+
+|Purchase a magic potion|
+|Health amount current|gold count current|purchase magic potion|gold count?|health amount?|displays error message?|
+|10|1|1|1|10|1|
+
+
+
+Store option:
+
+Player has store option at every turn.
+Upon choosing store option, the player should see arrow count, gold coin count, and bat repellent value.
+Player should also have option of not purchasing anything.
+
+Item values:
+Gold coin count - between 0 and 15% of # of all caverns
+Health amount - between 0 and 10
+Arrow count - no limit to it

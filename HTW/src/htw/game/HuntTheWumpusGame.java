@@ -317,7 +317,7 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 		}
 
 		private void checkForGold() {
-			if (pitCaverns.contains(playerCavern)){
+			if (goldCaverns.contains(playerCavern)) {
 				messageReceiver.foundGold();
 				setPlayerGold(getPlayerGold() + 1);
 			}
@@ -377,6 +377,14 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 
 	public void setPlayerGold(int playerGold) {
 		this.playerGold = playerGold;
+	}
+
+	public boolean isCavernHasGold(String cavern) {
+		for (String string : goldCaverns) {
+			if (string.equalsIgnoreCase(cavern))
+				return true;
+		}
+		return false;
 	}
 
 }

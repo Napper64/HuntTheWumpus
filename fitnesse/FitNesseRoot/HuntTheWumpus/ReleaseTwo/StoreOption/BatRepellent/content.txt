@@ -1,0 +1,34 @@
+!include .HuntTheWumpus.ScenarioLibrary
+!include .HuntTheWumpus.SetUp
+
+If a room has bats and the player has bat repellent, the player is unaffected by bats.
+
+-!|script|
+|Given Cross Map|
+|Given the player is in cavern FarLeft|
+|Given the cavern Middle has bats|
+|Given the player has bat repellent|
+|When the player goes East|
+|Then the player is in cavern Middle|
+|Then the player has no bat repellent|
+
+If a room has bats and the player does not have bat repellent, the player is affected by bats.
+
+-!|script|
+|Given Cross Map|
+|Given the player is in cavern FarLeft|
+|Given the cavern Middle has bats|
+|Given the player has no bat repellent|
+|When the player goes East|
+|Then the player is not in cavern Middle|
+|Then the player has no bat repellent|
+
+If a room does not have bats and the player does have bat repellent, nothing happens.
+
+-!|script|
+|Given Cross Map|
+|Given the player is in cavern FarLeft|
+|Given the player has bat repellent|
+|When the player goes East|
+|Then the player is in Middle cavern|
+|Then the player has bat repellent|

@@ -1,0 +1,13 @@
+!define TEST_SYSTEM {slim}
+!path /Users/Vivi/Documents/CleanCode-E37-Extras/projects/bin
+
+|Import|
+|placeholder|
+
+Corpse can have magic potion, gold coin, or arrow.
+
+If room has a corpse, then player loots and retrieves one of three items.
+
+|Looting|
+|Has corpse|health current|gold current|arrow current|magic potion|gold coin|arrow|health count?|gold count?|arrow count?|
+|1|5|2|0|
