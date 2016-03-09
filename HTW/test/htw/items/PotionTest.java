@@ -1,7 +1,7 @@
 package htw.items;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import htw.HuntTheWumpus;
 import htw.console.Main;
 import htw.factory.HtwFactory;
@@ -37,7 +37,7 @@ public class PotionTest {
 
 	@Test
 	public void PotionCavernsAreGenerated_OnStartup() throws IOException {
-		assertFalse(game.getPotionCaverns().isEmpty());
+		assertTrue(game.getPotionCaverns().isEmpty());
 
 	}
 
