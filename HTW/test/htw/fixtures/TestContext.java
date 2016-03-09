@@ -84,4 +84,10 @@ public class TestContext implements HtwMessageReceiver {
 	public void playerShootsWall() {
 		messages.add("PLAYER_SHOOTS_WALL");
 	}
+
+	@Override
+	public void foundGold() {
+		messages.add("PLAYER_FOUND_GOLD");
+
+	}
 }
