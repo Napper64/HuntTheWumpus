@@ -18,7 +18,6 @@ import java.util.List;
 public class Main implements HtwMessageReceiver {
 
 	private static HuntTheWumpus game;
-	private static int hitPoints = 10;
 	private static final List<String> caverns = new ArrayList<>();
 	private static final String[] environments = new String[] { "bright",
 			"humid", "dry", "creepy", "ugly", "foggy", "hot", "cold", "drafty",
@@ -46,8 +45,8 @@ public class Main implements HtwMessageReceiver {
 		game.makeRestCommand().execute();
 		while (true) {
 			System.out.println(game.getPlayerCavern());
-			System.out.println("Health: " + hitPoints + " arrows: "
-					+ game.getQuiver());
+			System.out.println("Health: " + game.getPlayerHealth()
+					+ " arrows: " + game.getQuiver());
 			HuntTheWumpus.Command c = game.makeRestCommand();
 			System.out.println(">");
 			String command = br.readLine();
@@ -171,7 +170,7 @@ public class Main implements HtwMessageReceiver {
 
 	public void playerShootsSelfInBack() {
 		System.out.println("Ow!  You shot yourself in the back.");
-		hit(3);
+		game.hitPlayerBy(3);
 	}
 
 	public void playerKillsWumpus() {
@@ -181,7 +180,7 @@ public class Main implements HtwMessageReceiver {
 
 	public void playerShootsWall() {
 		System.out.println("You shot the wall and the ricochet hurt you.");
-		hit(3);
+		game.hitPlayerBy(3);
 	}
 
 	public void arrowsFound(Integer arrowsFound) {
@@ -191,7 +190,7 @@ public class Main implements HtwMessageReceiver {
 
 	public void fellInPit() {
 		System.out.println("You fell in a pit and hurt yourself.");
-		hit(4);
+		game.hitPlayerBy(4);
 	}
 
 	public void playerMovesToWumpus() {
@@ -208,11 +207,4 @@ public class Main implements HtwMessageReceiver {
 		System.out.println("Some bats carried you away.");
 	}
 
-	private void hit(int points) {
-		hitPoints -= points;
-		if (hitPoints <= 0) {
-			System.out.println("You have died of your wounds.");
-			System.exit(0);
-		}
-	}
 }
