@@ -81,5 +81,6 @@ public interface HuntTheWumpus {
 	public void setPotionCaverns(Set<String> potionCaverns);
 
 	int getPlayerGold();
+	void setPlayerGold(int playerGold);
 
 }

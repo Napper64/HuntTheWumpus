@@ -1,9 +1,10 @@
 package htw.test;
 
-import static org.junit.Assert.assertEquals;
 import htw.HuntTheWumpus;
 import htw.console.Main;
 import htw.factory.HtwFactory;
+
+import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -11,11 +12,13 @@ import org.junit.Test;
 public class HuntTheWumpusTest {
 
 	private HuntTheWumpus huntTheWumpus;
+	int gold;
 
 	@Before
 	public void setup() {
 		huntTheWumpus = HtwFactory.makeGame("htw.game.HuntTheWumpusGame",
 				new Main());
+		gold = 0;
 	}
 
 	@Test
@@ -32,7 +35,21 @@ public class HuntTheWumpusTest {
 	}
 
 	@Test
-	public void checkForGoldTest() throws Exception {
+	public void checkForGold_GoldCountIsZeroTest() throws Exception {
+		assertEquals(0, huntTheWumpus.getPlayerGold());
 	}
 
+	@Test
+	public void checkForGold_GoldCountIncreasesWhenPlayerEntersCavernWithGoldTest() throws Exception {
+		huntTheWumpus.setPlayerGold(goldFound());
+		assertEquals(1, huntTheWumpus.getPlayerGold());
+		
+		huntTheWumpus.setPlayerGold(goldFound());
+		assertEquals(2, huntTheWumpus.getPlayerGold());
+	}
+
+	private int goldFound() {
+		return ++gold;
+	}
+	
 }
