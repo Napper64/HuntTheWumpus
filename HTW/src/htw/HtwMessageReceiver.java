@@ -26,6 +26,8 @@ public interface HtwMessageReceiver {
 	void fellInPit();
 
 	void foundGold();
+	
+	void foundBatRepellent();
 
 	void playerMovesToWumpus();
 

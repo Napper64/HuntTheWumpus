@@ -108,4 +108,9 @@ public class TestContext implements HtwMessageReceiver {
 		messages.add("STORE_GREETINGS");
 
 	}
+
+	@Override
+	public void foundBatRepellent() {
+		messages.add("FOUND_BAT_REPELLENT");
+	}
 }
