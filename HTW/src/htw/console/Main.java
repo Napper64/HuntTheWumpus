@@ -9,6 +9,7 @@ import static htw.HuntTheWumpus.Direction.WEST;
 import htw.HtwMessageReceiver;
 import htw.HuntTheWumpus;
 import htw.HuntTheWumpus.Direction;
+import htw.HuntTheWumpus.Purchase;
 import htw.factory.HtwFactory;
 
 import java.io.BufferedReader;
@@ -258,6 +259,22 @@ public class Main implements HtwMessageReceiver {
 	@Override
 	public void storeGreeting() {
 		System.out.println("Welcome to the Store");
+
+	}
+
+	@Override
+	public void storeExit() {
+		// blank
+	}
+
+	@Override
+	public void foundBatRepellent() {
+
+	}
+
+	@Override
+	public void playerPurchased(Purchase purchase) {
+		System.out.println("You've Purchased 1x " + purchase.toString());
 
 	}
 

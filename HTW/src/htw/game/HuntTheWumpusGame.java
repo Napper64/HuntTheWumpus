@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.Set;
 import java.util.function.Predicate;
 
@@ -172,6 +173,21 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 		return new MoveCommand(direction);
 	}
 
+	public void makePurchase(Purchase purchase) {
+		if (playerGold >= 1) {
+			messageReceiver.playerPurchased(purchase);
+			if (purchase.equals(Purchase.POTION))
+				potionAcquired();
+			if (purchase.equals(Purchase.BAT_REPELLANT))
+				setPlayerBatRepellant(1);
+			if (purchase.equals(Purchase.ARROW))
+				quiver += 1;
+			setPlayerGold(playerGold - 1);
+		} else {
+			System.out.println("Insufficent Funds");
+		}
+	}
+
 	public abstract class GameCommand implements Command {
 		public void execute() {
 			processCommand();
@@ -300,6 +316,7 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 				displayStore();
 				previousPlayerCavern = getPlayerCavern();
 				setPlayerCavern(storeCavern);
+				displayItems();
 			} else if (movePlayer(direction)) {
 				checkForWumpus();
 				checkForPit();
@@ -309,6 +326,7 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 				checkForPotions();
 			} else if (direction.equals(Direction.QUIT)) {
 				setPlayerCavern(previousPlayerCavern);
+				messageReceiver.storeExit();
 			} else
 				messageReceiver.noPassage();
 		}
@@ -395,7 +413,11 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 			setPlayerHealth(playerHealth + 3);
 			if (getPlayerHealth() > 10)
 				setPlayerHealth(10);
-			potionCaverns.remove(getPlayerCavern());
+			try {
+				potionCaverns.remove(getPlayerCavern());
+			} catch (Exception e) {
+
+			}
 			messageReceiver.potionAcquired();
 		}
 	}
@@ -440,4 +462,24 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 		}
 	}
 
+	private void displayItems() {
+		System.out
+				.println("What would you like to purchase?\n1) Potion\n2) Bat Repellant\n3) Arrow\n4) Quit>");
+		Scanner scanner = new Scanner(System.in);
+		int key = scanner.nextInt();
+		switch (key) {
+		case 1:
+			makePurchase(Purchase.POTION);
+			break;
+		case 2:
+			makePurchase(Purchase.BAT_REPELLANT);
+			break;
+		case 3:
+			makePurchase(Purchase.ARROW);
+			break;
+		case 4:
+			break;
+		}
+
+	}
 }
