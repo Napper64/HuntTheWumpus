@@ -365,6 +365,8 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 			messageReceiver.potionAcquiredAtMaxHealth();
 		} else {
 			setPlayerHealth(playerHealth + 3);
+			if (getPlayerHealth() > 10)
+				setPlayerHealth(10);
 			potionCaverns.remove(getPlayerCavern());
 			messageReceiver.potionAcquired();
 		}
