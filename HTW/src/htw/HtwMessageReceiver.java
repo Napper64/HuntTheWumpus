@@ -34,6 +34,8 @@ public interface HtwMessageReceiver {
 	void wumpusMovesToPlayer();
 
 	void batsTransport();
+	
+	void batsEscape();
 
 	void potionAcquired();
 

@@ -333,8 +333,16 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 
 		private void checkForBats() {
 			if (batCaverns.contains(playerCavern)) {
-				messageReceiver.batsTransport();
-				randomlyTransportPlayer();
+				if (getPlayerBatRepellant() < 1)
+				{
+					messageReceiver.batsTransport();
+					randomlyTransportPlayer();
+				}
+				else
+				{
+					messageReceiver.batsEscape();
+					setPlayerBatRepellant(getPlayerBatRepellant() - 1);
+				}
 			}
 		}
 
