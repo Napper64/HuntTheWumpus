@@ -121,7 +121,7 @@ public class TestContext implements HtwMessageReceiver {
 		messages.add("FOUND_BAT_REPELLENT");
 
 	}
-	
+
 	@Override
 	public void batsEscape() {
 		messages.add("BAT_ESCAPE");
@@ -130,6 +130,12 @@ public class TestContext implements HtwMessageReceiver {
 	@Override
 	public void playerPurchased(Purchase item) {
 		messages.add("PURCAHSED_" + item.toString());
+
+	}
+
+	@Override
+	public void playerAtFullHealth() {
+		messages.add("FULL_HEALTH");
 
 	}
 }

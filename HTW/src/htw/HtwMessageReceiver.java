@@ -48,4 +48,6 @@ public interface HtwMessageReceiver {
 	void storeExit();
 
 	void playerPurchased(Purchase string);
+
+	void playerAtFullHealth();
 }

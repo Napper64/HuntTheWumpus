@@ -253,7 +253,7 @@ public class Main implements HtwMessageReceiver {
 
 	@Override
 	public void potionAcquired() {
-		System.out.println("You have found a Potion.");
+		System.out.println("You have used one Potion.");
 	}
 
 	@Override
@@ -280,6 +280,12 @@ public class Main implements HtwMessageReceiver {
 	@Override
 	public void playerPurchased(Purchase purchase) {
 		System.out.println("You've Purchased 1x " + purchase.toString());
+
+	}
+
+	@Override
+	public void playerAtFullHealth() {
+		System.out.println("You are already at full Health");
 
 	}
 

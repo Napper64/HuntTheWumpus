@@ -175,13 +175,22 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 
 	public void makePurchase(Purchase purchase) {
 		if (playerGold >= 1) {
-			messageReceiver.playerPurchased(purchase);
 			if (purchase.equals(Purchase.POTION))
-				potionAcquired();
-			if (purchase.equals(Purchase.BAT_REPELLANT))
+				if (getPlayerHealth() == 10) {
+					messageReceiver.playerAtFullHealth();
+					setPlayerGold(playerGold + 1);
+				} else {
+					potionAcquired();
+					messageReceiver.playerPurchased(purchase);
+				}
+			if (purchase.equals(Purchase.BAT_REPELLANT)) {
 				setPlayerBatRepellant(1);
-			if (purchase.equals(Purchase.ARROW))
+				messageReceiver.playerPurchased(purchase);
+			}
+			if (purchase.equals(Purchase.ARROW)) {
 				quiver += 1;
+				messageReceiver.playerPurchased(purchase);
+			}
 			setPlayerGold(playerGold - 1);
 		} else {
 			System.out.println("Insufficent Funds");
@@ -314,9 +323,6 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 		public void processCommand() {
 			if (direction.equals(Direction.STORE)) {
 				displayStore();
-				previousPlayerCavern = getPlayerCavern();
-				setPlayerCavern(storeCavern);
-				displayItems();
 			} else if (movePlayer(direction)) {
 				checkForWumpus();
 				checkForPit();
@@ -333,9 +339,9 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 		}
 
 		private void displayStore() {
-			previousPlayerCavern = playerCavern;
-			messageReceiver.storeGreeting();
-
+			previousPlayerCavern = getPlayerCavern();
+			setPlayerCavern(storeCavern);
+			displayItems();
 		}
 
 		private void checkForPotions() {
@@ -421,7 +427,7 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 
 	@Override
 	public void potionAcquired() {
-		if (getPlayerHealth() >= 10) {
+		if (getPlayerHealth() == 10) {
 			messageReceiver.potionAcquiredAtMaxHealth();
 		} else {
 			setPlayerHealth(playerHealth + 3);
@@ -432,7 +438,8 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 			} catch (Exception e) {
 
 			}
-			messageReceiver.potionAcquired();
+			if (!getPlayerCavern().equals(storeCavern))
+				messageReceiver.potionAcquired();
 		}
 	}
 
@@ -477,27 +484,43 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 	}
 
 	private void displayItems() {
+		messageReceiver.storeGreeting();
 		System.out
 				.println("What would you like to purchase?\n1) Potion\n2) Bat Repellant\n3) Arrow\n4) Quit>");
 		Scanner scanner = new Scanner(System.in);
-		int key = scanner.nextInt();
-		switch (key) {
-		case 1:
-			makePurchase(Purchase.POTION);
-			playerCavern = previousPlayerCavern;
-			break;
-		case 2:
-			makePurchase(Purchase.BAT_REPELLANT);
-			playerCavern = previousPlayerCavern;
-			break;
-		case 3:
-			makePurchase(Purchase.ARROW);
-			playerCavern = previousPlayerCavern;
-			break;
-		case 4:
-			playerCavern = previousPlayerCavern;
-			break;
+		if (scanner.hasNextInt()) {
+			switch (scanner.nextInt()) {
+			case 1:
+				makePurchase(Purchase.POTION);
+				displayItems();
+				break;
+			case 2:
+				makePurchase(Purchase.BAT_REPELLANT);
+				displayItems();
+				break;
+			case 3:
+				makePurchase(Purchase.ARROW);
+				displayItems();
+				break;
+			case 4:
+				playerCavern = previousPlayerCavern;
+				break;
+			default:
+				System.out.println("Invalid Input");
+				displayItems();
+			}
+		} else {
+			System.out.println("Invalid Input");
+			displayItems();
 		}
 
+	}
+
+	public void setPreviousPlayerCavern(String previousPlayerCavern) {
+		this.previousPlayerCavern = previousPlayerCavern;
+	}
+
+	public String getPreviousPlayerCavern() {
+		return this.previousPlayerCavern;
 	}
 }
