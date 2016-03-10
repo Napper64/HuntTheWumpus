@@ -1,0 +1,39 @@
+If you purchase an item, decrease gold amount by 1.
+
+Option 1: purchasing an arrow
+
+If you purchase an arrow, increase arrow count by 1.
+If you purchase an arrow, decrease gold amount by 1.
+
+Purchase an arrow
+Arrow count current	gold count current	purchase arrow	gold count?	arrow count?
+5	1	1	0	6
+
+-!|script|
+|Given Cross Map|
+|Given player selects Store option|
+|Given the player has bat repellent|
+|When the player goes East|
+|Then the player is in cavern Middle|
+|Then the player has no bat repellent|
+
+
+Option 2: purchasing a magic potion
+
+If you purchase a magic potion, increase health total by 3.
+If you purchase a magic potion, decrease gold amount by 1.
+
+Purchase a magic potion
+Health amount current	gold count current	purchase magic potion	gold count?	health amount?
+7	1	1	0	10
+8	1	1	0	10
+9	1	1	0	10
+
+Option 3: purchasing bat repellent
+
+If you purchase bat repellent, change bat repellent value to true (yes).
+If you purchase bat repellent, decrease gold amount by 1.
+
+Purchase bat repellent
+Bat repellent current	gold count current	purchase bat repellent	gold count?	bat repellent?
+0	1	1	0	1
