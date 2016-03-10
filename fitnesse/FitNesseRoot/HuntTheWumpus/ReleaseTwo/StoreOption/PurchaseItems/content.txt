@@ -114,6 +114,30 @@ If you purchase a magic potion, increase health total by 3 and decrease gold amo
 |Given the player purchases a magic potion|
 |When player makes a purchase store closes|
 |Then the player has health count of 10|
+|Then the player has 2 gold coins|
+
+-!|script|
+|Given Cross Map|
+|Given the player is in cavern Left|
+|Given the player has health count of 10|
+|Given the player has 2 gold coins|
+|Given player selects Store option|
+|Then a | WELCOME_TO_STORE| message is given|
+|Given the player purchases a magic potion|
+|Then a | NO_GOLD_COINS| message is given|
+|Then the player has health count of 10|
+|Then the player has 2 gold coins| 
+
+-!|script|
+|Given Cross Map|
+|Given the player is in cavern Left|
+|Given the player has health count of 10|
+|Given the player has no gold |
+|Given player selects Store option|
+|Then a | WELCOME_TO_STORE| message is given|
+|Given the player purchases a magic potion|
+|Then a | CANNOT_PURCHASE_POTION_WITH_FULL_HEALTH| message is given|
+|Then the player has health count of 10|
 |Then the player has 2 gold coins| 
 
 
