@@ -126,7 +126,7 @@
 | scenario | Then the player has health of _|health|
 | check | health |@health|
 
-| scenario | Then the cavern no longer has magic potion|
+| scenario | Then the cavern _ no longer has magic potion|cavern|
 | check | magic potion in cavern |@cavern|0|
 
 | scenario | Then the cavern still has magic potion|
