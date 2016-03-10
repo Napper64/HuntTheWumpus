@@ -28,8 +28,6 @@ public interface HtwMessageReceiver {
 	void fellInPit();
 
 	void foundGold();
-	
-	void foundBatRepellent();
 
 	void foundBatRepellent();
 
@@ -38,7 +36,7 @@ public interface HtwMessageReceiver {
 	void wumpusMovesToPlayer();
 
 	void batsTransport();
-	
+
 	void batsEscape();
 
 	void potionAcquired();
