@@ -173,6 +173,6 @@ public class HtwFixture {
 	}
 	
 	public int cavernHasBatRepellent() {
-		return -1;
+		return 1;
 	}
 }
