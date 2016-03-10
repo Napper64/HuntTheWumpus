@@ -129,6 +129,9 @@
 | scenario | Then the cavern no longer has magic potion|
 | check | magic potion in cavern |@cavern|0|
 
+| scenario | Then the cavern still has magic potion|
+| check | magic potion in cavern |@cavern|1|
+
 | scenario | Then the player does not have magic potion|
 | check | magic potion |0|
 
