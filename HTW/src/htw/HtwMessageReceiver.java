@@ -1,5 +1,7 @@
 package htw;
 
+import htw.HuntTheWumpus.Purchase;
+
 public interface HtwMessageReceiver {
 	void noPassage();
 
@@ -26,7 +28,7 @@ public interface HtwMessageReceiver {
 	void fellInPit();
 
 	void foundGold();
-	
+
 	void foundBatRepellent();
 
 	void playerMovesToWumpus();
@@ -34,7 +36,7 @@ public interface HtwMessageReceiver {
 	void wumpusMovesToPlayer();
 
 	void batsTransport();
-	
+
 	void batsEscape();
 
 	void potionAcquired();
@@ -42,4 +44,8 @@ public interface HtwMessageReceiver {
 	void potionAcquiredAtMaxHealth();
 
 	void storeGreeting();
+
+	void storeExit();
+
+	void playerPurchased(Purchase string);
 }

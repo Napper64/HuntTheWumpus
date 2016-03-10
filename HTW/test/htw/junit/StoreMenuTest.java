@@ -11,6 +11,7 @@ public class StoreMenuTest {
 
 	private TestContext testContext;
 	private final static String greetingsMessage = "STORE_GREETINGS";
+	private final static String storeDisabled = "STORE_DISABLED";
 
 	@Before
 	public void setup() {
@@ -28,6 +29,14 @@ public class StoreMenuTest {
 		testContext.game.makeMoveCommand(Direction.STORE).execute();
 		testContext.messages.clear();
 		testContext.game.makeMoveCommand(Direction.QUIT).execute();
-		assertTrue(testContext.messages.contains(greetingsMessage));
+		assertTrue(testContext.messages.contains(storeDisabled));
+	}
+
+	@Test
+	public void playerPurchases_Potion() {
+		testContext.game.makeMoveCommand(Direction.STORE).execute();
+		// testContext.game.makePurchase(Purchase.POTION).execute();
+		assertTrue(testContext.messages.contains(storeDisabled));
+
 	}
 }

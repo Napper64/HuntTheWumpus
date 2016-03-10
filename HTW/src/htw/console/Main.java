@@ -9,6 +9,7 @@ import static htw.HuntTheWumpus.Direction.WEST;
 import htw.HtwMessageReceiver;
 import htw.HuntTheWumpus;
 import htw.HuntTheWumpus.Direction;
+import htw.HuntTheWumpus.Purchase;
 import htw.factory.HtwFactory;
 
 import java.io.BufferedReader;
@@ -50,7 +51,7 @@ public class Main implements HtwMessageReceiver {
 			if (!game.getPlayerCavern().equals("store"))
 				System.out.println(game.getPlayerCavern());
 			System.out.println("Health: " + game.getPlayerHealth() + "\nGold: "
-					+ game.getPlayerGold() + "\narrows: " + game.getQuiver() + "\nRepellent: " + game.getPlayerBatRepellant());
+					+ game.getPlayerGold() + "\narrows: " + game.getQuiver());
 			HuntTheWumpus.Command c = game.makeRestCommand();
 			System.out.println(">");
 			String command = br.readLine();
@@ -262,13 +263,24 @@ public class Main implements HtwMessageReceiver {
 	}
 
 	@Override
-	public void foundBatRepellent() {
-		System.out.println("You found Bat repellent.");
+	public void storeExit() {
+		// blank
 	}
 
 	@Override
+	public void foundBatRepellent() {
+		System.out.println("You found Bat repellent.");
+	}
+	
+	@Override
 	public void batsEscape() {
 		System.out.println("You ran away from bats.");
+	}
+
+	@Override
+	public void playerPurchased(Purchase purchase) {
+		System.out.println("You've Purchased 1x " + purchase.toString());
+
 	}
 
 }

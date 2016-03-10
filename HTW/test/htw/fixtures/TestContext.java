@@ -2,6 +2,7 @@ package htw.fixtures;
 
 import htw.HtwMessageReceiver;
 import htw.HuntTheWumpus;
+import htw.HuntTheWumpus.Purchase;
 import htw.factory.HtwFactory;
 
 import java.util.HashMap;
@@ -110,12 +111,25 @@ public class TestContext implements HtwMessageReceiver {
 	}
 
 	@Override
-	public void foundBatRepellent() {
-		messages.add("FOUND_BAT_REPELLENT");
+	public void storeExit() {
+		messages.add("STORE_DISABLED");
+
 	}
 
 	@Override
+	public void foundBatRepellent() {
+		messages.add("FOUND_BAT_REPELLENT");
+
+	}
+	
+	@Override
 	public void batsEscape() {
 		messages.add("BAT_ESCAPE");
+	}
+
+	@Override
+	public void playerPurchased(Purchase item) {
+		messages.add("PURCAHSED_" + item.toString());
+
 	}
 }

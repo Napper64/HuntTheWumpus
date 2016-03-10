@@ -43,6 +43,10 @@ public interface HuntTheWumpus {
 
 	}
 
+	public enum Purchase {
+		POTION, BAT_REPELLANT, ARROW
+	}
+
 	void setPlayerCavern(String playerCavern);
 
 	String getPlayerCavern();
