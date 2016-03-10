@@ -18,7 +18,7 @@ import java.util.List;
 public class Main implements HtwMessageReceiver {
 
 	protected static HuntTheWumpus game;
-	protected static boolean debugMode = false;
+	protected static boolean testMode = false;
 	private static final List<String> caverns = new ArrayList<>();
 	private static final String[] environments = new String[] { "bright",
 			"humid", "dry", "creepy", "ugly", "foggy", "hot", "cold", "drafty",
@@ -44,7 +44,7 @@ public class Main implements HtwMessageReceiver {
 		createMap();
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		game.makeRestCommand().execute();
-		while (!debugMode) {
+		while (!testMode) {
 			System.out.println(game.getPlayerCavern());
 			System.out.println("Health: " + game.getPlayerHealth() + "\nGold: "
 					+ game.getPlayerGold() + "\narrows: " + game.getQuiver());

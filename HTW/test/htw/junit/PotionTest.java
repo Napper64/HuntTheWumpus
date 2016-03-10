@@ -33,6 +33,14 @@ public class PotionTest {
 	}
 
 	@Test
+	public void PlayerHealth_At9_PotionIncreasesHealth_To10() {
+		game.setPlayerHealth(9);
+		assertEquals(9, game.getPlayerHealth());
+		game.potionAcquired();
+		assertEquals(10, game.getPlayerHealth());
+	}
+
+	@Test
 	public void PlayerHealth_At10_PotionIsNotUsed() {
 		assertEquals(10, game.getPlayerHealth());
 		game.potionAcquired();
