@@ -73,14 +73,20 @@ public interface HuntTheWumpus {
 	public int getPlayerHealth();
 
 	public void setPlayerHealth(int points);
+	
+	public int getPlayerBatRepellant();
+
+	public void setPlayerBatRepellant(int point);
 
 	public void hitPlayerBy(int points);
 
 	// public void setPlayerGoldPoints(int gold);
 
 	public void potionAcquired();
-
+	
 	public void addPotionCavern(String anyOther);
+	
+	public void addBatRepellantCavern(String anyOther);
 
 	public Set<String> getPotionCaverns();
 
