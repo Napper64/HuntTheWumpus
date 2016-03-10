@@ -110,6 +110,15 @@ public class Main implements HtwMessageReceiver {
 		game.addPotionCavern(anyOther(playerCavern));
 		game.addPotionCavern(anyOther(playerCavern));
 		game.addPotionCavern(anyOther(playerCavern));
+		
+		game.addBatRepellantCavern(anyOther(playerCavern));
+		game.addBatRepellantCavern(anyOther(playerCavern));
+		game.addBatRepellantCavern(anyOther(playerCavern));
+		game.addBatRepellantCavern(anyOther(playerCavern));
+		game.addBatRepellantCavern(anyOther(playerCavern));
+		game.addBatRepellantCavern(anyOther(playerCavern));
+		game.addBatRepellantCavern(anyOther(playerCavern));
+		game.addBatRepellantCavern(anyOther(playerCavern));
 
 		int i = 0;
 		while (i < 10) {
