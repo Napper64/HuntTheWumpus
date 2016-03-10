@@ -13,7 +13,7 @@ Arrow count current	gold count current	purchase arrow	gold count?	arrow count?
 |Given Cross Map|
 |Given the player is in cavern Bottom|
 |Given the player has 5 arrows|
-|Given the player has 2 gold coin|
+|Given the player has 2 gold coins|
 |Given player selects Store option|
 |Then a | WELCOME_TO_STORE| message is given|
 |Given the player purchases an arrow|
@@ -42,7 +42,7 @@ Arrow count current	gold count current	purchase arrow	gold count?	arrow count?
 |Then a | WELCOME_TO_STORE| message is given|
 |Given the player purchases an arrow|
 |When player makes a purchase store closes|
-|Then the player has 1 arrows|
+|Then the player has 1 arrow|
 |Then the player has no gold|
 
 Option 2: purchasing a magic potion
