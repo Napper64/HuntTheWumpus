@@ -57,10 +57,7 @@ public class HtwFixture {
 		return true;
 	}
 
-	public boolean setCavernAsBats(String cavern) {
-		game.addBatCavern(cavern);
-		return true;
-	}
+	
 
 	public boolean rest() {
 		game.makeRestCommand().execute();
@@ -144,4 +141,11 @@ public class HtwFixture {
 		return game.getPlayerGold();
 
 	}
+	
+	public boolean setCavernAsBats(String cavern) {
+		game.addBatCavern(cavern);
+		return true;
+	}
+	
+	
 }
