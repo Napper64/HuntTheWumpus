@@ -324,6 +324,7 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 				checkForGold();
 				checkForArrows();
 				checkForPotions();
+				checkForBatRepellent();
 			} else if (direction.equals(Direction.QUIT)) {
 				setPlayerCavern(previousPlayerCavern);
 				messageReceiver.storeExit();
@@ -350,8 +351,16 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 
 		private void checkForBats() {
 			if (batCaverns.contains(playerCavern)) {
-				messageReceiver.batsTransport();
-				randomlyTransportPlayer();
+				if (getPlayerBatRepellant() < 1)
+				{
+					messageReceiver.batsTransport();
+					randomlyTransportPlayer();
+				}
+				else
+				{
+					messageReceiver.batsEscape();
+					setPlayerBatRepellant(getPlayerBatRepellant() - 1);
+				}
 			}
 		}
 
@@ -377,6 +386,14 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 			}
 		}
 
+		private void checkForBatRepellent() {
+			if (batRepellantCaverns.contains(playerCavern)) {
+				messageReceiver.foundBatRepellent();
+				batRepellantCaverns.remove(getPlayerCavern());
+				setPlayerBatRepellant(getPlayerBatRepellant() + 1);
+			}
+		}
+		
 		private void checkForArrows() {
 			Integer arrowsFound = getArrowsInCavern(playerCavern);
 			if (arrowsFound > 0)

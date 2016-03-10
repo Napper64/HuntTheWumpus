@@ -118,8 +118,13 @@ public class TestContext implements HtwMessageReceiver {
 
 	@Override
 	public void foundBatRepellent() {
-		// TODO Auto-generated method stub
+		messages.add("FOUND_BAT_REPELLENT");
 
+	}
+	
+	@Override
+	public void batsEscape() {
+		messages.add("BAT_ESCAPE");
 	}
 
 	@Override
