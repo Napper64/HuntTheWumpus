@@ -2,7 +2,7 @@ If a room has bats and the player has bat repellent, the player is unaffected by
 
 -!|script|
 |Given Cross Map|
-|Given the player is in cavern FarLeft|
+|Given the player is in cavern Left|
 |Given the cavern Middle has bats|
 |Given the player has bat repellent|
 |When the player goes East|
@@ -13,7 +13,7 @@ If a room has bats and the player does not have bat repellent, the player is aff
 
 -!|script|
 |Given Cross Map|
-|Given the player is in cavern FarLeft|
+|Given the player is in cavern Left|
 |Given the cavern Middle has bats|
 |Given the player has no bat repellent|
 |When the player goes East|
@@ -24,7 +24,7 @@ If a room does not have bats and the player does have bat repellent, nothing hap
 
 -!|script|
 |Given Cross Map|
-|Given the player is in cavern FarLeft|
+|Given the player is in cavern Left|
 |Given the player has bat repellent|
 |When the player goes East|
 |Then the player is in Middle cavern|
