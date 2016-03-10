@@ -266,4 +266,9 @@ public class Main implements HtwMessageReceiver {
 		System.out.println("You found Bat repellent.");
 	}
 
+	@Override
+	public void batsEscape() {
+		System.out.println("You ran away from bats.");
+	}
+
 }
