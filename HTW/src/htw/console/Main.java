@@ -2,6 +2,7 @@ package htw.console;
 
 import static htw.HuntTheWumpus.Direction.EAST;
 import static htw.HuntTheWumpus.Direction.NORTH;
+import static htw.HuntTheWumpus.Direction.QUIT;
 import static htw.HuntTheWumpus.Direction.SOUTH;
 import static htw.HuntTheWumpus.Direction.STORE;
 import static htw.HuntTheWumpus.Direction.WEST;
@@ -46,7 +47,8 @@ public class Main implements HtwMessageReceiver {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		game.makeRestCommand().execute();
 		while (!testMode) {
-			System.out.println(game.getPlayerCavern());
+			if (!game.getPlayerCavern().equals("store"))
+				System.out.println(game.getPlayerCavern());
 			System.out.println("Health: " + game.getPlayerHealth() + "\nGold: "
 					+ game.getPlayerGold() + "\narrows: " + game.getQuiver() + "\nRepellent: " + game.getPlayerBatRepellant());
 			HuntTheWumpus.Command c = game.makeRestCommand();
@@ -72,6 +74,9 @@ public class Main implements HtwMessageReceiver {
 				c = game.makeShootCommand(SOUTH);
 			else if (command.equalsIgnoreCase("store"))
 				c = game.makeMoveCommand(STORE);
+			else if (command.equalsIgnoreCase("quit")
+					&& game.getPlayerCavern().equals("store"))
+				c = game.makeMoveCommand(QUIT);
 			else if (command.equalsIgnoreCase("q"))
 				return;
 
@@ -110,7 +115,7 @@ public class Main implements HtwMessageReceiver {
 		game.addPotionCavern(anyOther(playerCavern));
 		game.addPotionCavern(anyOther(playerCavern));
 		game.addPotionCavern(anyOther(playerCavern));
-		
+
 		game.addBatRepellantCavern(anyOther(playerCavern));
 		game.addBatRepellantCavern(anyOther(playerCavern));
 		game.addBatRepellantCavern(anyOther(playerCavern));

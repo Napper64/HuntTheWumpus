@@ -31,6 +31,13 @@ public interface HuntTheWumpus {
 			public Direction opposite() {
 				return EAST;
 			}
+		},
+		QUIT {
+			@Override
+			public Direction opposite() {
+				// TODO Auto-generated method stub
+				return null;
+			}
 		};
 		public abstract Direction opposite();
 
@@ -73,7 +80,7 @@ public interface HuntTheWumpus {
 	public int getPlayerHealth();
 
 	public void setPlayerHealth(int points);
-	
+
 	public int getPlayerBatRepellant();
 
 	public void setPlayerBatRepellant(int point);
@@ -83,9 +90,9 @@ public interface HuntTheWumpus {
 	// public void setPlayerGoldPoints(int gold);
 
 	public void potionAcquired();
-	
+
 	public void addPotionCavern(String anyOther);
-	
+
 	public void addBatRepellantCavern(String anyOther);
 
 	public Set<String> getPotionCaverns();
