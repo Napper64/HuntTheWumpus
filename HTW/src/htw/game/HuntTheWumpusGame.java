@@ -280,7 +280,9 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 		}
 
 		public void processCommand() {
-			if (movePlayer(direction)) {
+			if (direction.equals(Direction.STORE))
+				displayStore();
+			else if (movePlayer(direction)) {
 				checkForWumpus();
 				checkForPit();
 				checkForBats();
@@ -289,6 +291,11 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 				checkForPotions();
 			} else
 				messageReceiver.noPassage();
+		}
+
+		private void displayStore() {
+			messageReceiver.storeGreeting();
+
 		}
 
 		private void checkForPotions() {

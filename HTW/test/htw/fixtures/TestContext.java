@@ -102,4 +102,10 @@ public class TestContext implements HtwMessageReceiver {
 		// TODO Auto-generated method stub
 
 	}
+
+	@Override
+	public void storeGreeting() {
+		messages.add("STORE_GREETINGS");
+
+	}
 }

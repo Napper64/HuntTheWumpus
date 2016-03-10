@@ -3,6 +3,7 @@ package htw.console;
 import static htw.HuntTheWumpus.Direction.EAST;
 import static htw.HuntTheWumpus.Direction.NORTH;
 import static htw.HuntTheWumpus.Direction.SOUTH;
+import static htw.HuntTheWumpus.Direction.STORE;
 import static htw.HuntTheWumpus.Direction.WEST;
 import htw.HtwMessageReceiver;
 import htw.HuntTheWumpus;
@@ -69,6 +70,8 @@ public class Main implements HtwMessageReceiver {
 				c = game.makeShootCommand(NORTH);
 			else if (command.equalsIgnoreCase("ss"))
 				c = game.makeShootCommand(SOUTH);
+			else if (command.equalsIgnoreCase("store"))
+				c = game.makeMoveCommand(STORE);
 			else if (command.equalsIgnoreCase("q"))
 				return;
 
@@ -236,6 +239,12 @@ public class Main implements HtwMessageReceiver {
 	@Override
 	public void potionAcquired() {
 		System.out.println("You have found a Potion.");
+	}
+
+	@Override
+	public void storeGreeting() {
+		System.out.println("Welcome to the Store");
+
 	}
 
 }

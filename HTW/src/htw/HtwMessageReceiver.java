@@ -36,4 +36,6 @@ public interface HtwMessageReceiver {
 	void potionAcquired();
 
 	void potionAcquiredAtMaxHealth();
+
+	void storeGreeting();
 }
