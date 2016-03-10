@@ -11,17 +11,92 @@ Arrow count current	gold count current	purchase arrow	gold count?	arrow count?
 
 -!|script|
 |Given Cross Map|
+|Given the player is in cavern Bottom|
+|Given the player has 5 arrows|
+|Given the player has 2 gold coin|
 |Given player selects Store option|
-|Given the player has bat repellent|
-|When the player goes East|
-|Then the player is in cavern Middle|
-|Then the player has no bat repellent|
+|Then a | WELCOME_TO_STORE| message is given|
+|Given the player purchases an arrow|
+|When player makes a purchase store closes|
+|Then the player has 6 arrows|
+|Then the player has 1 gold coin|
 
+-!|script|
+|Given Cross Map|
+|Given the player is in cavern Bottom|
+|Given the player has 6 arrows|
+|Given the player has 1 gold coin|
+|Given player selects Store option|
+|Then a | WELCOME_TO_STORE| message is given|
+|Given the player purchases an arrow|
+|When player makes a purchase store closes|
+|Then the player has 7 arrows|
+|Then the player has no gold|
+
+-!|script|
+|Given Cross Map|
+|Given the player is in cavern Right|
+|Given the player has no arrows|
+|Given the player has 1 gold coin|
+|Given player selects Store option|
+|Then a | WELCOME_TO_STORE| message is given|
+|Given the player purchases an arrow|
+|When player makes a purchase store closes|
+|Then the player has 1 arrows|
+|Then the player has no gold|
 
 Option 2: purchasing a magic potion
 
 If you purchase a magic potion, increase health total by 3.
 If you purchase a magic potion, decrease gold amount by 1.
+
+-!|script|
+|Given Cross Map|
+|Given the player is in cavern Left|
+|Given the player has health count of 1|
+|Given the player has 1 gold coin|
+|Given player selects Store option|
+|Then a | WELCOME_TO_STORE| message is given|
+|Given the player purchases a magic potion|
+|When player makes a purchase store closes|
+|Then the player has health count of 4|
+|Then the player has no gold|
+
+-!|script|
+|Given Cross Map|
+|Given the player is in cavern Left|
+|Given the player has health count of 7|
+|Given the player has 1 gold coin|
+|Given player selects Store option|
+|Then a | WELCOME_TO_STORE| message is given|
+|Given the player purchases a magic potion|
+|When player makes a purchase store closes|
+|Then the player has health count of 10|
+|Then the player has no gold|
+
+-!|script|
+|Given Cross Map|
+|Given the player is in cavern Left|
+|Given the player has health count of 8|
+|Given the player has 1 gold coin|
+|Given player selects Store option|
+|Then a | WELCOME_TO_STORE| message is given|
+|Given the player purchases a magic potion|
+|When player makes a purchase store closes|
+|Then the player has health count of 10|
+|Then the player has no gold|
+
+-!|script|
+|Given Cross Map|
+|Given the player is in cavern Left|
+|Given the player has health count of 9|
+|Given the player has 3 gold coins|
+|Given player selects Store option|
+|Then a | WELCOME_TO_STORE| message is given|
+|Given the player purchases a magic potion|
+|When player makes a purchase store closes|
+|Then the player has health count of 10|
+|Then the player has 2 gold coins| 
 
 Purchase a magic potion
 Health amount current	gold count current	purchase magic potion	gold count?	health amount?
@@ -33,6 +108,32 @@ Option 3: purchasing bat repellent
 
 If you purchase bat repellent, change bat repellent value to true (yes).
 If you purchase bat repellent, decrease gold amount by 1.
+
+-!|script|
+|Given Cross Map|
+|Given the player is in cavern Right|
+|Given the player has no bat repellent|
+|Given the player has 3 gold coins|
+|Given player selects Store option|
+|Then a | WELCOME_TO_STORE| message is given|
+|Given the player purchases a bat repellent|
+|When player makes a purchase store closes|
+|Then the player has bat repellent|
+|Then the player has 2 gold coins|
+
+-!|script|
+|Given Cross Map|
+|Given the player is in cavern Right|
+|Given the player has bat repellent|
+|Given the player has 2 gold coins|
+|Given player selects Store option|
+|Then a | WELCOME_TO_STORE| message is given|
+|Given the player purchases a bat repellent|
+|Player cannot have two bat repellents|
+|Then a | BAT_REPELLENT_DUPLICATION| message is given|
+|When player makes a purchase store closes|
+|Then the player has bat repellent|
+|Then the player has 2 gold coins|
 
 Purchase bat repellent
 Bat repellent current	gold count current	purchase bat repellent	gold count?	bat repellent?
