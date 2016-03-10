@@ -1,0 +1,43 @@
+For scenario in which player has no gold, finds gold in adjacent room, and amount increments by 1.
+
+-!|script|
+|Given Cross Map|
+|Given the player is in cavern Left|
+|Given the gold is in cavern Middle|
+|Given the player has no gold|
+|When the player goes East|
+|Then there is no gold in cavern Middle|
+|Then the player has 1 gold coin|
+
+For scenario in which player has 1 gold coin, finds gold in adjacent room, and amount increments by 1.
+
+-!|script|
+|Given Cross Map|
+|Given the player is in cavern Left|
+|Given the gold is in cavern Middle|
+|Given the player has 1 gold coin|
+|When the player goes East|
+|Then there is no gold in cavern Middle|
+|Then the player has 2 gold coins|
+
+
+For scenario in which player has no gold, does not find gold in adjacent room, and amount does not change.
+
+-!|script|
+|Given Cross Map|
+|Given the player is in cavern Left|
+|Given there is no gold in cavern Middle|
+|Given the player has no gold|
+|When the player goes East|
+|Then the player has no gold|
+
+For scenario in which player has 1 gold coin, does not find gold in adjacent room, and amount does not change.
+
+-!|script|
+|Given Cross Map|
+|Given the player is in cavern Left|
+|Given there is no gold in cavern Middle|
+|Given the player has 1 gold coin|
+|When the player goes East|
+|Then the player has 1 gold coin|
+
