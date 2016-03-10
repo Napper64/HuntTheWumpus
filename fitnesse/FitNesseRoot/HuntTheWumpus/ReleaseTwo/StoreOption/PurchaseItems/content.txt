@@ -1,3 +1,17 @@
+!2 User can enter and exit the store without making a purchase
+
+-!|script|
+|Given Cross Map|
+|Given the player is in cavern Bottom|
+|Given the player has 2 gold coins|
+|Given player selects Store option|
+|Then a | WELCOME_TO_STORE| message is given|
+|Player can exit the store without making a purchase|
+|When the player goes North|
+|Then there is no gold in cavern Below|
+|Then the player has 2 gold coin|
+
+
 !2 Option 1: purchasing an arrow
 
 If you purchase an arrow, increase arrow count by 1 and decrease gold amount by 1.
