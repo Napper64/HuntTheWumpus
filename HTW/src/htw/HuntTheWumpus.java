@@ -70,7 +70,7 @@ public interface HuntTheWumpus {
 
 	public void hitPlayerBy(int points);
 
-	//public void setPlayerGoldPoints(int gold);
+	// public void setPlayerGoldPoints(int gold);
 
 	public void potionAcquired();
 
@@ -80,7 +80,10 @@ public interface HuntTheWumpus {
 
 	public void setPotionCaverns(Set<String> potionCaverns);
 
-	int getPlayerGold();
-	void setPlayerGold(int playerGold);
+	public int getPlayerGold();
+
+	public void setPlayerGold(int playerGold);
+
+	public boolean isGoldInCavern(String cavern);
 
 }

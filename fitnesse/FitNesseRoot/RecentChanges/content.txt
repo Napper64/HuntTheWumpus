@@ -1,6 +1,8 @@
-|HuntTheWumpus.ScenarioLibrary||16:27:28 Wed, Mar 09, 2016|
+|HuntTheWumpus.ReleaseTwo||07:23:32 Thu, Mar 10, 2016|
+|HuntTheWumpus.ReleaseTwo.StoreOption.BatRepellent||07:23:08 Thu, Mar 10, 2016|
+|HuntTheWumpus.ScenarioLibrary||07:21:27 Thu, Mar 10, 2016|
+|HuntTheWumpus.ReleaseTwo.StoreOption.CollectingGoldCoins||07:19:30 Thu, Mar 10, 2016|
 |HuntTheWumpus||15:37:30 Wed, Mar 09, 2016|
-|HuntTheWumpus.ReleaseTwo.StoreOption.CollectingGoldCoins||15:37:11 Wed, Mar 09, 2016|
 |HuntTheWumpus.ReleaseOne.PlayerRecievesStatusAfterEachTurn.AvailablePassagesAreReported||11:59:47 Tue, Oct 13, 2015|
 |HuntTheWumpus.ReleaseOne.PitCaverns.PlayerIsInformedAboutFallingIntoPit||06:57:44 Tue, Oct 13, 2015|
 |HuntTheWumpus.ReleaseOne.PitCaverns||06:55:37 Tue, Oct 13, 2015|

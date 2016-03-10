@@ -286,8 +286,15 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 				checkForBats();
 				checkForGold();
 				checkForArrows();
+				checkForPotions();
 			} else
 				messageReceiver.noPassage();
+		}
+
+		private void checkForPotions() {
+			if (potionCaverns.contains(playerCavern)) {
+				potionAcquired();
+			}
 		}
 
 		private void checkForWumpus() {
@@ -319,6 +326,7 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 		private void checkForGold() {
 			if (goldCaverns.contains(playerCavern)) {
 				messageReceiver.foundGold();
+				goldCaverns.remove(getPlayerCavern());
 				setPlayerGold(getPlayerGold() + 1);
 			}
 		}
@@ -354,10 +362,12 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 	@Override
 	public void potionAcquired() {
 		if (getPlayerHealth() >= 10) {
-			System.out
-					.println("You have found a Potion. But you are at Max Health");
-		} else
+			messageReceiver.potionAcquiredAtMaxHealth();
+		} else {
 			setPlayerHealth(playerHealth + 3);
+			potionCaverns.remove(getPlayerCavern());
+			messageReceiver.potionAcquired();
+		}
 	}
 
 	@Override
@@ -379,7 +389,8 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 		this.playerGold = playerGold;
 	}
 
-	public boolean isCavernHasGold(String cavern) {
+	@Override
+	public boolean isGoldInCavern(String cavern) {
 		for (String string : goldCaverns) {
 			if (string.equalsIgnoreCase(cavern))
 				return true;

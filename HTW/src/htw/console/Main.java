@@ -17,7 +17,8 @@ import java.util.List;
 
 public class Main implements HtwMessageReceiver {
 
-	private static HuntTheWumpus game;
+	protected static HuntTheWumpus game;
+	protected static boolean debugMode = false;
 	private static final List<String> caverns = new ArrayList<>();
 	private static final String[] environments = new String[] { "bright",
 			"humid", "dry", "creepy", "ugly", "foggy", "hot", "cold", "drafty",
@@ -43,11 +44,10 @@ public class Main implements HtwMessageReceiver {
 		createMap();
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		game.makeRestCommand().execute();
-		while (true) {
+		while (!debugMode) {
 			System.out.println(game.getPlayerCavern());
-			System.out.println("Health: " + game.getPlayerHealth()
-					+ "\nGold: " + game.getPlayerGold() + "\narrows: "
-					+ game.getQuiver());
+			System.out.println("Health: " + game.getPlayerHealth() + "\nGold: "
+					+ game.getPlayerGold() + "\narrows: " + game.getQuiver());
 			HuntTheWumpus.Command c = game.makeRestCommand();
 			System.out.println(">");
 			String command = br.readLine();
@@ -99,6 +99,11 @@ public class Main implements HtwMessageReceiver {
 		game.addPitCavern(anyOther(playerCavern));
 		game.addPitCavern(anyOther(playerCavern));
 
+		game.addPotionCavern(anyOther(playerCavern));
+		game.addPotionCavern(anyOther(playerCavern));
+		game.addPotionCavern(anyOther(playerCavern));
+		game.addPotionCavern(anyOther(playerCavern));
+		game.addPotionCavern(anyOther(playerCavern));
 		game.addPotionCavern(anyOther(playerCavern));
 		game.addPotionCavern(anyOther(playerCavern));
 		game.addPotionCavern(anyOther(playerCavern));
@@ -220,6 +225,17 @@ public class Main implements HtwMessageReceiver {
 
 	public void batsTransport() {
 		System.out.println("Some bats carried you away.");
+	}
+
+	@Override
+	public void potionAcquiredAtMaxHealth() {
+		System.out
+				.println("You have found a Potion. But you are at Max Health.");
+	}
+
+	@Override
+	public void potionAcquired() {
+		System.out.println("You have found a Potion.");
 	}
 
 }

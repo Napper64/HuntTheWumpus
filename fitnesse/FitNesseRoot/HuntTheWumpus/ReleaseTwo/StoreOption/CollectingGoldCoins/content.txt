@@ -1,11 +1,8 @@
-!include .HuntTheWumpus.ScenarioLibrary
-!include .HuntTheWumpus.SetUp
-
 For scenario in which player has no gold, finds gold in adjacent room, and amount increments by 1.
 
 -!|script|
 |Given Cross Map|
-|Given the player is in cavern FarLeft|
+|Given the player is in cavern Left|
 |Given the gold is in cavern Middle|
 |Given the player has no gold|
 |When the player goes East|
@@ -16,7 +13,7 @@ For scenario in which player has 1 gold coin, finds gold in adjacent room, and a
 
 -!|script|
 |Given Cross Map|
-|Given the player is in cavern FarLeft|
+|Given the player is in cavern Left|
 |Given the gold is in cavern Middle|
 |Given the player has 1 gold coin|
 |When the player goes East|
@@ -28,7 +25,7 @@ For scenario in which player has no gold, does not find gold in adjacent room, a
 
 -!|script|
 |Given Cross Map|
-|Given the player is in cavern FarLeft|
+|Given the player is in cavern Left|
 |Given there is no gold in cavern Middle|
 |Given the player has no gold|
 |When the player goes East|
@@ -38,7 +35,7 @@ For scenario in which player has 1 gold coin, does not find gold in adjacent roo
 
 -!|script|
 |Given Cross Map|
-|Given the player is in cavern FarLeft|
+|Given the player is in cavern Left|
 |Given there is no gold in cavern Middle|
 |Given the player has 1 gold coin|
 |When the player goes East|

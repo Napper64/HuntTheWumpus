@@ -82,10 +82,10 @@
 | put gold in cavern | @c |
 
 | scenario | Given there is no gold in cavern | c |
-| check | gold in cavern | @cavern | 0 |
+| check | gold in cavern | @c | false |
 
 | scenario | Then the player has _ gold coins | gold |
-| check | gold | @gold |
+| check | gold amount is | @gold |
 
 | scenario | Then the player has no gold |
 | check | gold amount is | 0 |
@@ -94,7 +94,7 @@
 | check | gold amount is | 1 |
 
 | scenario | Then there is no gold in cavern | cavern |
-| check | gold in cavern | @cavern | 0 |
+| check | gold in cavern | @cavern | false |
 
 | scenario | Then there are _ gold coins in cavern _ | gold,cavern |
 | check | gold in cavern | @cavern | @gold |

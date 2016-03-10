@@ -90,4 +90,16 @@ public class TestContext implements HtwMessageReceiver {
 		messages.add("PLAYER_FOUND_GOLD");
 
 	}
+
+	@Override
+	public void potionAcquired() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void potionAcquiredAtMaxHealth() {
+		// TODO Auto-generated method stub
+
+	}
 }

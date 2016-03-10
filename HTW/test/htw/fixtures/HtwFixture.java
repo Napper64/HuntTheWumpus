@@ -131,12 +131,13 @@ public class HtwFixture {
 		return true;
 	}
 
-	public void setPlayerGold(int gold) {
+	public boolean setPlayerGold(int gold) {
 		game.setPlayerGold(gold);
+		return true;
 	}
 
 	public boolean goldInCavern(String cavern) {
-		return game.isCavernHasGold(cavern);
+		return game.isGoldInCavern(cavern);
 	}
 
 	public int goldAmountIs() {

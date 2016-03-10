@@ -1,6 +1,3 @@
-!include .HuntTheWumpus.ScenarioLibrary
-!include .HuntTheWumpus.SetUp
-
 If a room has bats and the player has bat repellent, the player is unaffected by bats.
 
 -!|script|
