@@ -1,7 +1,9 @@
 package htw.junit;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import htw.HuntTheWumpus.Direction;
+import htw.HuntTheWumpus.Purchase;
 import htw.fixtures.TestContext;
 
 import org.junit.Before;
@@ -35,8 +37,10 @@ public class StoreMenuTest {
 	@Test
 	public void playerPurchases_Potion() {
 		testContext.game.makeMoveCommand(Direction.STORE).execute();
-		// testContext.game.makePurchase(Purchase.POTION).execute();
-		assertTrue(testContext.messages.contains(storeDisabled));
+		testContext.game.setPlayerHealth(1);
+		testContext.game.setPlayerGold(4);
+		testContext.game.makePurchase(Purchase.POTION);
+		assertEquals(4, testContext.game.getPlayerHealth());
 
 	}
 }
