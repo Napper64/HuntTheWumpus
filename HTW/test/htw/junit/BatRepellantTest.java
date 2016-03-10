@@ -39,45 +39,5 @@ public class BatRepellantTest {
 		assertEquals(1, game.getPlayerBatRepellant());
 	}
 
-	@Test
-	public void PotionCavernsAreGenerated_OnStartup() throws IOException {
-		assertFalse(game.getPotionCaverns().isEmpty());
-
-	}
-
-	@Test
-	public void PlayerAtLowHealth_PicksUpPotion_WhenInSameCavern()
-			throws IOException {
-		game = HtwFactory.makeGame("htw.game.HuntTheWumpusGame",
-				new TestableMain());
-		game.setPlayerHealth(1);
-		game.connectCavern("Top", "Bottom", Direction.SOUTH);
-		game.connectCavern("Bottom", "Top", Direction.NORTH);
-		game.setPlayerCavern("Top");
-		Set<String> potionCaverns = new HashSet<String>();
-		potionCaverns.add("Bottom");
-		game.setPotionCaverns(potionCaverns);
-		game.makeMoveCommand(Direction.SOUTH).execute();
-		assertTrue(game.getPotionCaverns().isEmpty());
-		assertEquals(4, game.getPlayerHealth());
-
-	}
-
-	@Test
-	public void PlayerAtMaxHealth_DoesntPickUpPotion_WhenInSameCavern()
-			throws IOException {
-		game = HtwFactory.makeGame("htw.game.HuntTheWumpusGame",
-				new TestableMain());
-		game.connectCavern("Top", "Bottom", Direction.SOUTH);
-		game.connectCavern("Bottom", "Top", Direction.NORTH);
-		game.setPlayerCavern("Top");
-		Set<String> potionCaverns = new HashSet<String>();
-		potionCaverns.add("Bottom");
-		game.setPotionCaverns(potionCaverns);
-		game.makeMoveCommand(Direction.SOUTH).execute();
-		assertFalse(game.getPotionCaverns().isEmpty());
-		assertEquals(10, game.getPlayerHealth());
-
-	}
 
 }
