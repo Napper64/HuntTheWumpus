@@ -48,7 +48,7 @@ public class Main implements HtwMessageReceiver {
 		while (!testMode) {
 			System.out.println(game.getPlayerCavern());
 			System.out.println("Health: " + game.getPlayerHealth() + "\nGold: "
-					+ game.getPlayerGold() + "\narrows: " + game.getQuiver());
+					+ game.getPlayerGold() + "\narrows: " + game.getQuiver() + "\nRepellent: " + game.getPlayerBatRepellant());
 			HuntTheWumpus.Command c = game.makeRestCommand();
 			System.out.println(">");
 			String command = br.readLine();
@@ -254,6 +254,11 @@ public class Main implements HtwMessageReceiver {
 	public void storeGreeting() {
 		System.out.println("Welcome to the Store");
 
+	}
+
+	@Override
+	public void foundBatRepellent() {
+		System.out.println("You found Bat repellent.");
 	}
 
 }

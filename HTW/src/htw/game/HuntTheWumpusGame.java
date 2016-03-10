@@ -295,6 +295,7 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 				checkForGold();
 				checkForArrows();
 				checkForPotions();
+				checkForBatRepellent();
 			} else
 				messageReceiver.noPassage();
 		}
@@ -344,6 +345,14 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 			}
 		}
 
+		private void checkForBatRepellent() {
+			if (batRepellantCaverns.contains(playerCavern)) {
+				messageReceiver.foundBatRepellent();
+				batRepellantCaverns.remove(getPlayerCavern());
+				setPlayerBatRepellant(getPlayerBatRepellant() + 1);
+			}
+		}
+		
 		private void checkForArrows() {
 			Integer arrowsFound = getArrowsInCavern(playerCavern);
 			if (arrowsFound > 0)
