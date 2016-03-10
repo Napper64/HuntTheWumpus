@@ -3,7 +3,9 @@ package htw.fixtures;
 import static htw.fixtures.TestContext.game;
 import htw.HuntTheWumpus;
 
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class HtwFixture {
 	public boolean ConnectCavernToGoing(String c1, String c2, String dir) {
@@ -139,7 +141,30 @@ public class HtwFixture {
 
 	public int goldAmountIs() {
 		return game.getPlayerGold();
+	}
 
+	public boolean setMagicPotionTo(String cavern) {
+		Set<String> potionsCaverns = new HashSet<String>();
+		potionsCaverns.add(cavern);
+		game.setPotionCaverns(potionsCaverns);
+		return true;
+
+	}
+
+	public boolean setHealthTo(int health) {
+		game.setPlayerHealth(health);
+		return true;
+	}
+
+	public int magicPotionInCavern(String cavern) {
+		if (game.getPotionCaverns().contains(cavern))
+			return 1;
+		return 0;
+
+	}
+
+	public int health() {
+		return game.getPlayerHealth();
 	}
 	
 	public boolean setCavernAsBats(String cavern) {

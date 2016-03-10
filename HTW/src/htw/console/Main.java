@@ -3,6 +3,7 @@ package htw.console;
 import static htw.HuntTheWumpus.Direction.EAST;
 import static htw.HuntTheWumpus.Direction.NORTH;
 import static htw.HuntTheWumpus.Direction.SOUTH;
+import static htw.HuntTheWumpus.Direction.STORE;
 import static htw.HuntTheWumpus.Direction.WEST;
 import htw.HtwMessageReceiver;
 import htw.HuntTheWumpus;
@@ -18,7 +19,7 @@ import java.util.List;
 public class Main implements HtwMessageReceiver {
 
 	protected static HuntTheWumpus game;
-	protected static boolean debugMode = false;
+	protected static boolean testMode = false;
 	private static final List<String> caverns = new ArrayList<>();
 	private static final String[] environments = new String[] { "bright",
 			"humid", "dry", "creepy", "ugly", "foggy", "hot", "cold", "drafty",
@@ -44,7 +45,7 @@ public class Main implements HtwMessageReceiver {
 		createMap();
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		game.makeRestCommand().execute();
-		while (!debugMode) {
+		while (!testMode) {
 			System.out.println(game.getPlayerCavern());
 			System.out.println("Health: " + game.getPlayerHealth() + "\nGold: "
 					+ game.getPlayerGold() + "\narrows: " + game.getQuiver());
@@ -69,6 +70,8 @@ public class Main implements HtwMessageReceiver {
 				c = game.makeShootCommand(NORTH);
 			else if (command.equalsIgnoreCase("ss"))
 				c = game.makeShootCommand(SOUTH);
+			else if (command.equalsIgnoreCase("store"))
+				c = game.makeMoveCommand(STORE);
 			else if (command.equalsIgnoreCase("q"))
 				return;
 
@@ -245,6 +248,12 @@ public class Main implements HtwMessageReceiver {
 	@Override
 	public void potionAcquired() {
 		System.out.println("You have found a Potion.");
+	}
+
+	@Override
+	public void storeGreeting() {
+		System.out.println("Welcome to the Store");
+
 	}
 
 }

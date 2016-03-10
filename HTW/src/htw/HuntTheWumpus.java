@@ -6,6 +6,12 @@ import java.util.Set;
 
 public interface HuntTheWumpus {
 	public enum Direction {
+		STORE {
+			@Override
+			public Direction opposite() {
+				return null;
+			}
+		},
 		NORTH {
 			public Direction opposite() {
 				return SOUTH;

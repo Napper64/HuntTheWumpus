@@ -112,6 +112,32 @@
 | scenario | Then the player has bat repellent |
 | check | bat repellent is | 1 |
 
+!3 Magic Potion Scenarios
+
+| scenario | Given the cavern has magic potion |
+| set magic potion to | 1 |
+
+|scenario| Given the player purchases magic potion|
+| set magic potion to | 1 |
+
+|scenario| Given the player has health count of _|health|
+|set health to |@health|
+
+| scenario | Then the player has health count of _|health|
+| check | health |@health|
+
+| scenario | Then the cavern _ no longer has magic potion|cavern|
+| check | magic potion in cavern |@cavern|0|
+
+| scenario | Then the cavern _ still has magic potion|cavern|
+| check | magic potion in cavern |@cavern|1|
+
+| scenario | Then the player does not have magic potion|
+| check | magic potion |0|
+
+| scenario| Given the magic potion is in cavern _|cavern|
+| set magic potion to | @cavern | 
+
 !3 Wumpus Scenarios
 | scenario | Given the wumpus is in cavern | c |
 | put wumpus in cavern | @c |
