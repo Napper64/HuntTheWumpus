@@ -1,4 +1,4 @@
-!2 User can enter and exit the store without making a purchase
+!2 User can enter and exit the store without making a purchase and continue playing
 
 -!|script|
 |Given Cross Map|
@@ -9,7 +9,7 @@
 |Player can exit the store without making a purchase|
 |When the player goes North|
 |Then there is no gold in cavern Below|
-|Then the player has 2 gold coin|
+|Then the player has 2 gold coins|
 
 
 !2 Option 1: purchasing an arrow
