@@ -1,4 +1,4 @@
-package htw.items;
+package htw.junit;
 
 import htw.HuntTheWumpus;
 import htw.console.Main;

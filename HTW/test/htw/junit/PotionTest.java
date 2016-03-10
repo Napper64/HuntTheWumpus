@@ -1,4 +1,4 @@
-package htw.items;
+package htw.junit;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
