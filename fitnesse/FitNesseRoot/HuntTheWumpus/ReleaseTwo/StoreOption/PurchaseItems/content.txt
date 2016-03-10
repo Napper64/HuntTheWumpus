@@ -1,6 +1,6 @@
 If you purchase an item, decrease gold amount by 1.
 
-Option 1: purchasing an arrow
+!2 Option 1: purchasing an arrow
 
 If you purchase an arrow, increase arrow count by 1.
 If you purchase an arrow, decrease gold amount by 1.
@@ -45,10 +45,30 @@ Arrow count current	gold count current	purchase arrow	gold count?	arrow count?
 |Then the player has 1 arrows|
 |Then the player has no gold|
 
-Option 2: purchasing a magic potion
+!3 Player attempts to purchase arrow with no gold coins
+
+-!|script|
+|Given Cross Map|
+|Given the player is in cavern Right|
+|Given the player has 0 arrows|
+|Given the player has 0 gold coins|
+|Given player selects Store option|
+|Then a | WELCOME_TO_STORE| message is given|
+|Then a | NO_GOLD_COINS| message is given|
+|Player can exit store without making a purchase|
+|Then the player has no arrows|
+|Then the player has no gold coins|
+
+!2 Option 2: purchasing a magic potion
 
 If you purchase a magic potion, increase health total by 3.
 If you purchase a magic potion, decrease gold amount by 1.
+
+Purchase a magic potion
+Health amount current	gold count current	purchase magic potion	gold count?	health amount?
+7	1	1	0	10
+8	1	1	0	10
+9	1	1	0	10
 
 -!|script|
 |Given Cross Map|
@@ -98,13 +118,24 @@ If you purchase a magic potion, decrease gold amount by 1.
 |Then the player has health count of 10|
 |Then the player has 2 gold coins| 
 
-Purchase a magic potion
-Health amount current	gold count current	purchase magic potion	gold count?	health amount?
-7	1	1	0	10
-8	1	1	0	10
-9	1	1	0	10
 
-Option 3: purchasing bat repellent
+!3 Player attempts to purchase magic potion with no gold coins
+
+-!|script|
+|Given Cross Map|
+|Given the player is in cavern Right|
+|Given the player has no magic potion|
+|Given the player has 0 gold coins|
+|Given player selects Store option|
+|Then a | WELCOME_TO_STORE| message is given|
+|Then a | NO_GOLD_COINS| message is given|
+|Player can exit store without making a purchase|
+|Then the player has no magic potion|
+|Then the player has no gold coins|
+
+
+
+!2 Option 3: purchasing bat repellent
 
 If you purchase bat repellent, change bat repellent value to true (yes).
 If you purchase bat repellent, decrease gold amount by 1.
@@ -135,6 +166,21 @@ If you purchase bat repellent, decrease gold amount by 1.
 |Then the player has bat repellent|
 |Then the player has 2 gold coins|
 
+!3 Player attempts to purchase bat repellent with no gold coins
+
 Purchase bat repellent
 Bat repellent current	gold count current	purchase bat repellent	gold count?	bat repellent?
 0	1	1	0	1
+
+-!|script|
+|Given Cross Map|
+|Given the player is in cavern Right|
+|Given the player has no bat repellent|
+|Given the player has 0 gold coins|
+|Given player selects Store option|
+|Then a | WELCOME_TO_STORE| message is given|
+|Then a | NO_GOLD_COINS| message is given|
+|Player can exit store without making a purchase|
+|Then the player has no bat repellent|
+|Then the player has no gold coins|
+
