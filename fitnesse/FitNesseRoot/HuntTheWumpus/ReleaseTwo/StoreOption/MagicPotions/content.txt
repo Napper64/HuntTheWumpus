@@ -55,14 +55,3 @@ For the scenario in which player enters a cavern with a magic potion but the hea
 |When the player goes East|
 |Then the cavern Middle still has magic potion|
 |Then the player has health count of 10|
-
-Option 2: purchasing a magic potion
-
-If you purchase a magic potion, increase health total by 3.
-If you purchase a magic potion, decrease gold amount by 1.
-
-Purchase a magic potion
-Health amount current	gold count current	purchase magic potion	gold count?	health amount?
-7	1	1	0	10
-8	1	1	0	10
-9	1	1	0	10

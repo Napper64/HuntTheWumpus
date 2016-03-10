@@ -35,7 +35,7 @@
 | check | get player cavern | @c |
 
 | scenario | Then the player is not in cavern | c |
-| check | get player cavern | !=@c |
+| reject | get player cavern | @c |
 
 | scenario | When the player rests until killed |
 | rest until killed |
