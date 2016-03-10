@@ -23,6 +23,8 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 	private Set<String> potionCaverns = new HashSet<>();
 	private Set<String> batRepellantCaverns = new HashSet<>();
 	private String wumpusCavern = "NONE";
+	private String storeCavern = "store";
+	private String previousPlayerCavern;
 	private int quiver = 0;
 	private Map<String, Integer> arrowsIn = new HashMap<>();
 	private int playerHealth = 10;
@@ -84,7 +86,7 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 	public void addBatRepellantCavern(String cavern) {
 		batRepellantCaverns.add(cavern);
 	}
-	
+
 	public void setWumpusCavern(String wumpusCavern) {
 		this.wumpusCavern = wumpusCavern;
 	}
@@ -173,9 +175,17 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 	public abstract class GameCommand implements Command {
 		public void execute() {
 			processCommand();
-			moveWumpus();
-			checkWumpusMovedToPlayer();
-			reportStatus();
+			if (!isStoreActive()) {
+				moveWumpus();
+				checkWumpusMovedToPlayer();
+				reportStatus();
+			}
+		}
+
+		private boolean isStoreActive() {
+			if (playerCavern.equals(storeCavern))
+				return true;
+			return false;
 		}
 
 		protected void checkWumpusMovedToPlayer() {
@@ -286,20 +296,25 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 		}
 
 		public void processCommand() {
-			if (direction.equals(Direction.STORE))
+			if (direction.equals(Direction.STORE)) {
 				displayStore();
-			else if (movePlayer(direction)) {
+				previousPlayerCavern = getPlayerCavern();
+				setPlayerCavern(storeCavern);
+			} else if (movePlayer(direction)) {
 				checkForWumpus();
 				checkForPit();
 				checkForBats();
 				checkForGold();
 				checkForArrows();
 				checkForPotions();
+			} else if (direction.equals(Direction.QUIT)) {
+				setPlayerCavern(previousPlayerCavern);
 			} else
 				messageReceiver.noPassage();
 		}
 
 		private void displayStore() {
+			previousPlayerCavern = playerCavern;
 			messageReceiver.storeGreeting();
 
 		}
@@ -420,11 +435,9 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 
 	@Override
 	public void setPlayerBatRepellant(int point) {
-		if((point < 2)){
+		if ((point < 2)) {
 			batRepellant = point;
 		}
 	}
-
-	
 
 }

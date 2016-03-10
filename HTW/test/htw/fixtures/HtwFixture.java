@@ -172,7 +172,12 @@ public class HtwFixture {
 		return true;
 	}
 	
-	public int cavernHasBatRepellent() {
+	public int cavernHasBatRepellent(String cavern) {
 		return 1;
+	}
+	
+	public boolean setBatRepellentTo(int point) {
+		game.setPlayerBatRepellant(point);
+		return true;
 	}
 }
