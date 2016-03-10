@@ -112,12 +112,21 @@
 | scenario | Then the player has bat repellent |
 | check | bat repellent is | 1 |
 
+!3 Store
+
+|scenario| Given the player purchases magic potion|
+| set magic potion purchase| 1 |
+
+|scenario| Given the player purchases an arrow|
+|set arrow purchase|1|
+
+|scenario| Given the player purchases bat repellent|
+| set bat repellent purchase | 1 |
+
+
 !3 Magic Potion Scenarios
 
 | scenario | Given the cavern has magic potion |
-| set magic potion to | 1 |
-
-|scenario| Given the player purchases magic potion|
 | set magic potion to | 1 |
 
 |scenario| Given the player has health count of _|health|

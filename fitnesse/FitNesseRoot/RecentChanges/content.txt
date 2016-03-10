@@ -1,4 +1,4 @@
-|HuntTheWumpus.ScenarioLibrary||11:26:50 Thu, Mar 10, 2016|
+|HuntTheWumpus.ScenarioLibrary||11:50:58 Thu, Mar 10, 2016|
 |HuntTheWumpus.ReleaseTwo.StoreOption.MagicPotions||09:56:28 Thu, Mar 10, 2016|
 |HuntTheWumpus.ReleaseTwo.StoreOption.CollectingGoldCoins||09:56:10 Thu, Mar 10, 2016|
 |HuntTheWumpus.ReleaseTwo.StoreOption||09:50:59 Thu, Mar 10, 2016|
