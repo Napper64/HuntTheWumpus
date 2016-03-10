@@ -106,6 +106,9 @@
 | scenario | Given the player has bat repellent |
 | set bat repellent to | 1 |
 
+| scenario | Given the cavern _ has bats | cavern |
+| set cavern as bats | @cavern |
+
 | scenario | Then the player has no bat repellent |
 | check | bat repellent is | 0 |
 
