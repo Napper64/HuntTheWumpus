@@ -523,4 +523,14 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 	public String getPreviousPlayerCavern() {
 		return this.previousPlayerCavern;
 	}
+
+	@Override
+	public Set<String> getBatCaverns() {
+		return batCaverns;
+	}
+
+	@Override
+	public void setBatCaverns(Set<String> batCaverns) {
+		this.batCaverns = batCaverns;
+	}
 }

@@ -38,6 +38,37 @@ public class BatRepellantTest {
 		game.setPlayerBatRepellant(1);
 		assertEquals(1, game.getPlayerBatRepellant());
 	}
-
+	
+	@Test
+	public void playerEntersBatCavern_DoesNotHaveRepellant_BatTransport() throws Exception {
+		game = HtwFactory.makeGame("htw.game.HuntTheWumpusGame",
+				new TestableMain());
+		game.setPlayerBatRepellant(0);
+		game.connectCavern("Top", "Bottom", Direction.SOUTH);
+		game.connectCavern("Bottom", "Top", Direction.NORTH);
+		game.setPlayerCavern("Top");
+		Set<String> batCaverns = new HashSet<String>();
+		batCaverns.add("Bottom");
+		game.setBatCaverns(batCaverns);
+		game.makeMoveCommand(Direction.SOUTH).execute();
+		
+		assertEquals("Top", game.getPlayerCavern());
+	}
+	
+	@Test
+	public void playerEntersBatCavern_HasRepellant_BatsFlyAway() throws Exception {
+		game = HtwFactory.makeGame("htw.game.HuntTheWumpusGame",
+				new TestableMain());
+		game.setPlayerBatRepellant(1);
+		game.connectCavern("Top", "Bottom", Direction.SOUTH);
+		game.connectCavern("Bottom", "Top", Direction.NORTH);
+		game.setPlayerCavern("Top");
+		Set<String> batCaverns = new HashSet<String>();
+		batCaverns.add("Bottom");
+		game.setBatCaverns(batCaverns);
+		game.makeMoveCommand(Direction.SOUTH).execute();
+		
+		assertEquals("Bottom", game.getPlayerCavern());
+	}
 
 }

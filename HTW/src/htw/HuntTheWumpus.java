@@ -102,6 +102,10 @@ public interface HuntTheWumpus {
 	public Set<String> getPotionCaverns();
 
 	public void setPotionCaverns(Set<String> potionCaverns);
+	
+	public Set<String> getBatCaverns();
+
+	public void setBatCaverns(Set<String> batCaverns);
 
 	public int getPlayerGold();
 
