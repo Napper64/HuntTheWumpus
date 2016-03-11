@@ -258,7 +258,8 @@ public class Main implements HtwMessageReceiver {
 
 	@Override
 	public void storeGreeting() {
-		System.out.println("Welcome to the Store");
+		System.out
+				.println("Welcome to the Store.\nWhat would you like to purchase?\n1) Potion\n2) Bat Repellant\n3) Arrow\n4) Quit>");
 
 	}
 

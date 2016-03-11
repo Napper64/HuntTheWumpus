@@ -208,8 +208,10 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 		}
 
 		private boolean isStoreActive() {
-			if (playerCavern.equals(storeCavern))
+			if (playerCavern.equals(storeCavern)) {
+				messageReceiver.storeGreeting();
 				return true;
+			}
 			return false;
 		}
 
@@ -341,7 +343,38 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 		private void displayStore() {
 			previousPlayerCavern = getPlayerCavern();
 			setPlayerCavern(storeCavern);
+			messageReceiver.storeGreeting();
 			displayItems();
+		}
+
+		private void displayItems() {
+			Scanner scanner = new Scanner(System.in);
+			if (scanner.hasNextInt()) {
+				switch (scanner.nextInt()) {
+				case 1:
+					makePurchase(Purchase.POTION);
+					displayItems();
+					break;
+				case 2:
+					makePurchase(Purchase.BAT_REPELLANT);
+					displayItems();
+					break;
+				case 3:
+					makePurchase(Purchase.ARROW);
+					displayItems();
+					break;
+				case 4:
+					playerCavern = previousPlayerCavern;
+					break;
+				default:
+					System.out.println("Invalid Input");
+					displayItems();
+				}
+			} else {
+				System.out.println("Invalid Input");
+				displayItems();
+			}
+
 		}
 
 		private void checkForPotions() {
@@ -481,39 +514,6 @@ public class HuntTheWumpusGame implements HuntTheWumpus {
 		if ((point < 2)) {
 			batRepellant = point;
 		}
-	}
-
-	private void displayItems() {
-		messageReceiver.storeGreeting();
-		System.out
-				.println("What would you like to purchase?\n1) Potion\n2) Bat Repellant\n3) Arrow\n4) Quit>");
-		Scanner scanner = new Scanner(System.in);
-		if (scanner.hasNextInt()) {
-			switch (scanner.nextInt()) {
-			case 1:
-				makePurchase(Purchase.POTION);
-				displayItems();
-				break;
-			case 2:
-				makePurchase(Purchase.BAT_REPELLANT);
-				displayItems();
-				break;
-			case 3:
-				makePurchase(Purchase.ARROW);
-				displayItems();
-				break;
-			case 4:
-				playerCavern = previousPlayerCavern;
-				break;
-			default:
-				System.out.println("Invalid Input");
-				displayItems();
-			}
-		} else {
-			System.out.println("Invalid Input");
-			displayItems();
-		}
-
 	}
 
 	public void setPreviousPlayerCavern(String previousPlayerCavern) {

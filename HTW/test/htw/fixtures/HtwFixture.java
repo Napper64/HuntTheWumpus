@@ -2,6 +2,7 @@ package htw.fixtures;
 
 import static htw.fixtures.TestContext.game;
 import htw.HuntTheWumpus;
+import htw.HuntTheWumpus.Direction;
 
 import java.util.HashSet;
 import java.util.Map;
@@ -58,8 +59,6 @@ public class HtwFixture {
 		game.addPitCavern(cavern);
 		return true;
 	}
-
-	
 
 	public boolean rest() {
 		game.makeRestCommand().execute();
@@ -166,18 +165,24 @@ public class HtwFixture {
 	public int health() {
 		return game.getPlayerHealth();
 	}
-	
+
 	public boolean setCavernAsBats(String cavern) {
 		game.addBatCavern(cavern);
 		return true;
 	}
-	
+
 	public int cavernHasBatRepellent(String cavern) {
 		return 1;
 	}
-	
+
 	public boolean setBatRepellentTo(int point) {
 		game.setPlayerBatRepellant(point);
 		return true;
+	}
+
+	public void setInStore(boolean status) {
+		if (status = true) {
+			game.makeMoveCommand(Direction.STORE).execute();
+		}
 	}
 }

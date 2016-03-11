@@ -106,7 +106,7 @@ public class TestContext implements HtwMessageReceiver {
 
 	@Override
 	public void storeGreeting() {
-		messages.add("STORE_GREETINGS");
+		messages.add("WELCOME_TO_STORE");
 
 	}
 
@@ -129,7 +129,7 @@ public class TestContext implements HtwMessageReceiver {
 
 	@Override
 	public void playerPurchased(Purchase item) {
-		messages.add("PURCAHSED_" + item.toString());
+		messages.add("PURCHASED_" + item.toString());
 
 	}
 

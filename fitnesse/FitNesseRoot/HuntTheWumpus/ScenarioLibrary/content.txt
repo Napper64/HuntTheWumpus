@@ -127,7 +127,7 @@
 | set bat repellent purchase | 1 |
 
 |scenario | Given player selects store option |
-| set in store| 1 |
+|set in store| 1 |
 
 |scenario | When player makes a purchase store closes |
 |is store active | 0 |
